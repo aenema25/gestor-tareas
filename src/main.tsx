@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import "./styles/App.css"
 import AppRoutes from './routes/index.tsx'
 import ThemeProvider from './providers/theme/index.tsx'
 import { Amplify } from "aws-amplify";
