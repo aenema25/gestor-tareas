@@ -2,8 +2,8 @@ import { Avatar, Button, Divider, List, ListItemButton, ListItemIcon, ListItemTe
 import { FC } from "react";
 import { Outlet, useNavigate } from "react-router";
 import "../../styles/dashboard.layout.styles.css"
-import { deepPurple, green, grey, red } from "@mui/material/colors";
-import { CalendarClock, Circle, LogOut } from "lucide-react";
+import { deepPurple, grey } from "@mui/material/colors";
+import { CalendarClock, LogOut } from "lucide-react";
 import { signOut } from 'aws-amplify/auth';
 
 const DashboardLayout: FC = () => {
@@ -44,29 +44,7 @@ const DashboardLayout: FC = () => {
                             Tareas
                         </Typography>} />
                     </ListItemButton>
-                    <List component="div" disablePadding >
-                        <ListItemButton sx={{ gap: '10px', paddingLeft: "24px" }}>
-                            <ListItemIcon sx={{ minWidth: 'unset' }}>
-                                <Circle width={12} stroke={green[500]} fill={green[500]} />
-                            </ListItemIcon>
-                            <ListItemText primary={
-                                <Typography variant="body2" fontWeight={400} sx={{ color: grey[700] }}>
-                                    Completadas
-                                </Typography>
-                            } />
-                        </ListItemButton>
-                        <ListItemButton sx={{ gap: '10px', paddingLeft: "24px" }}>
-                            <ListItemIcon sx={{ minWidth: 'unset' }}>
-                                <Circle width={12} stroke={red[500]} fill={red[500]} />
-                            </ListItemIcon>
-                            <ListItemText primary={
-                                <Typography variant="body2" fontWeight={400} sx={{ color: grey[700] }}>
-                                    Incompletas
-                                </Typography>
-                            } />
-                        </ListItemButton>
 
-                    </List>
                 </List>
                 <div className="dashboard-layout-sidebar-footer">
                     <Button variant="contained" color="secondary" endIcon={<LogOut />} onClick={handleSignOut}>
