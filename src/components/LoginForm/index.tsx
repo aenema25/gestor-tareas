@@ -1,5 +1,5 @@
-import { Button, TextField, Typography } from "@mui/material";
-import { LogIn } from "lucide-react";
+import { Button, IconButton, TextField, Typography } from "@mui/material";
+import { Eye, EyeClosed, LogIn } from "lucide-react";
 import { FC, useState } from "react";
 import { userLoginService } from "../../services/auth.api";
 import { useNavigate } from "react-router";
@@ -9,6 +9,8 @@ import { NotificationAlertSeverityType } from "../../types/misc.types";
 
 
 const LoginForm: FC = () => {
+
+    const [showPassword, setShowPassword] = useState(false)
 
     const [openNotification, setOpenNotification] = useState(false)
     const [notificationMessage, setNotificationMessage] = useState("")
@@ -70,11 +72,16 @@ const LoginForm: FC = () => {
             <TextField
                 label="Contraseña"
                 variant="outlined"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 size="small"
                 fullWidth
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                slotProps={{
+                    input: {
+                        endAdornment: <IconButton size="small" onClick={() => setShowPassword(!showPassword)}> {showPassword ? <Eye /> : <EyeClosed />}</IconButton>
+                    }
+                }}
             />
             <Button
                 color="primary"
