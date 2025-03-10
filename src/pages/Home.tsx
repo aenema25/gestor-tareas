@@ -20,9 +20,6 @@ const Home: FC = () => {
                 <Typography variant="h5" fontWeight={300}>
                     Hoy es un gran día para:
                 </Typography>
-                <Typography variant="h4" fontWeight={500}>
-                    "Ultima tarea agregada"
-                </Typography>
             </div>
             <div>
                 <AddTask taskList={taskList} setTaskList={setTaskList} />
